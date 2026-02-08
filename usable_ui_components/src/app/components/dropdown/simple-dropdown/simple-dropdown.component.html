@@ -1,0 +1,23 @@
+<!-- Simple builtin dropdown -->
+
+<div class="dropdown-container">
+    <p class="dropdown-title">Simple dropdown component</p>
+    
+    <select class="built-in-dropdown">
+        <option value="" disabled selected 
+                style="color: #9ca3af; font-weight: 500; padding: 12px 16px; background-color: #f9fafb;">
+            select names
+        </option>
+        
+        @for (option of options; track option.value) {
+            <option [value]="option.value" 
+                    style="color: #1f2937; padding: 12px 16px; background-color: #ffffff; font-size: 14px; 
+                           font-weight: 500; line-height: 1.6; margin: 2px 0; 
+                           border-radius: 4px; transition: all 0.2s ease;">
+                {{ option.label }}
+            </option>
+        }
+    </select>
+</div>
+
+
