@@ -1,0 +1,47 @@
+<h3 style="text-align:center;align-self: center;">Angular material based dropdown</h3>
+
+
+<div style="display:flex; flex-direction: row;gap: 15px;">
+    <!-- Option 1: Using default angular material -->
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Select an Option</mat-label>
+      
+      <mat-select>
+        <mat-option value="option1">First Hardcoded Option</mat-option>
+        <mat-option value="option2">Second Hardcoded Option</mat-option>
+        <mat-option value="option3">Third Hardcoded Option</mat-option>
+        
+        <mat-option value="option4" disabled>Disabled Option</mat-option>
+      </mat-select>
+    
+      <mat-hint>Choose one from the list above</mat-hint>
+    </mat-form-field>
+    
+    <!-- Using user added styling options angular dropdown -->
+    
+    <div class="dropdown-container" [class.open]="isOpen">
+      <div class="dropdown-wrapper">
+        <div class="dropdown-header" (click)="toggleDropdown()">
+          <span class="dropdown-label" [class.floating]="isOpen || selectedValue">
+            {{ label }}
+          </span>
+          <div class="selected-value" *ngIf="selectedValue && !isOpen">
+            {{ selectedValue }}
+          </div>
+          <span class="dropdown-arrow">▼</span>
+        </div>
+        
+        <div class="dropdown-list" *ngIf="isOpen">
+          <div 
+            class="dropdown-item" 
+            *ngFor="let item of items"
+            (click)="selectItem(item)"
+            [class.selected]="item === selectedValue">
+            {{ item }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
